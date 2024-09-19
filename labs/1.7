@@ -1,0 +1,66 @@
+Done by:
+    Student: Yavon Yaroslav
+    Group: 123:1
+    Lab 1.7
+*/
+
+#include <iostream>
+
+static int nA = 15; // Глобальна статична змінна ініціалізована значенням 15
+static int nB; // Глобальна статична змінна 
+
+int main()
+{
+    nB = 13; 
+
+    {
+        int localA = 7; 
+        static int nE = 5; 
+        localA = nA * nB; 
+    }
+    // nE недоступна поза блоком
+
+    nA += 8; 
+    nB++;   
+
+    {
+        // localA недоступна тут
+        int localB = 6; 
+        {
+            localB = 3;  
+            int localC = 9; 
+        }
+        // localC недоступна поза вкладеним блоком
+    }
+
+    float dynamicVar = 30.0f; 
+    int counter = 0; 
+
+    for (int i = 0; i < 5; i++)
+    {
+        static int staticCounter = 0; 
+        staticCounter++;
+        int localCounter = 0; 
+        localCounter++;
+        counter++;
+    }
+
+    for (int i = 0; i < 5; i++)
+    {
+        static int staticVarA = 0; 
+        int localVarB = 0; 
+        staticVarA++;
+        localVarB++;
+    }
+
+    int* ptrA = new int; 
+    *ptrA = 35;         
+    delete ptrA;        
+
+    int* ptrB = new int; 
+    *ptrB = 35;
+    delete ptrB;       
+
+   
+    return 0;
+}
