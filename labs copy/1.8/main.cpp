@@ -6,12 +6,8 @@ Done by:
 */
 // 1. Перевірка парності числа
 #include <iostream>
+#include <cmath>
 using namespace std;
-
-int main() {
-    #include <iostream>
-    using namespace std;
-
 
 int main() {
         setlocale(LC_ALL, "RU");
@@ -29,8 +25,7 @@ int main() {
 }
 
 //2. Підрахунок кількості одиничних бітів
-#include <iostream>
-using namespace std;
+
 
 int main() {
     setlocale(LC_ALL, "RU");
@@ -49,9 +44,6 @@ int main() {
 
 //3. Перевірка встановленого біта на певній позиції
 
-#include "iostream"
-using namespace std;
-
 int main() {
     setlocale(LC_ALL, "RU");
 
@@ -61,9 +53,9 @@ int main() {
     cout << "Введите положение бита:";
     cin >> r;
     if(r < 0) {
-        cout << "Бит постион муст бе греатер ор ечуал до нуля\n";
+        cout << "Бит постион до нуля\n";
         return 0;
     }
     int bitAtPos = (n & (1 << r)) == 0 ? 0 : 1;
-    cout << "Bit " << bitAtPos << " пастион " << r << "\n" << endl;
+    cout << "Біт " << bitAtPos << " пастион " << r << "\n" << endl;
 }
