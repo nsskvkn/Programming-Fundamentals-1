@@ -13,7 +13,7 @@ int precedence(char op) {
 
 int performOperation(char op, int a, int b) {
     if (op == '/' && b == 0) {
-        cerr << "Error: division by zero." << endl;
+        cout << "Error: division by zero." << endl;
         exit(EXIT_FAILURE);
     }
     return (op == '+') ? a + b :
