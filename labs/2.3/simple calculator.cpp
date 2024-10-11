@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    setlocale(LC_ALL, "Rus");
+    setlocale(LC_ALL, "Ru");
     double num1, num2;
     char operation;
 
