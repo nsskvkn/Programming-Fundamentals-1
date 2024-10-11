@@ -12,18 +12,32 @@ int precedence(char op) {
 }
 
 int performOperation(char op, int a, int b) {
-    if (op == '/' && b == 0) {
-        cout << "Error: division by zero." << endl;
-        exit(EXIT_FAILURE);
+    if (op == '/') {
+        if (b == 0) {
+            cout << "Error: division by zero." << endl;
+            exit(EXIT_FAILURE);
+        }
+        return a / b;
     }
-    return (op == '+') ? a + b :
-           (op == '-') ? a - b :
-           (op == '*') ? a * b : a / b;
+    else if (op == '+') {
+        return a + b;
+    }
+    else if (op == '-') {
+        return a - b;
+    }
+    else if (op == '*') {
+        return a * b;
+    }
+
+    cout << "Error: unsupported operator " << op << endl;
+    exit(EXIT_FAILURE);
 }
 
 void applyOperation(stack<int>& values, stack<char>& ops) {
-    int b = values.top(); values.pop();
-    int a = values.top(); values.pop();
+    int b = values.top();
+    values.pop();
+    int a = values.top();
+    values.pop();
     values.push(performOperation(ops.top(), a, b));
     ops.pop();
 }
