@@ -13,7 +13,7 @@ int precedence(char op) {
 
 int performOperation(char op, int a, int b) {
     if (op == '/' && b == 0) {
-        cout << "Error: division by zero." << endl;
+        cerr << "Error: division by zero." << endl;
         exit(EXIT_FAILURE);
     }
     return (op == '+') ? a + b :
@@ -40,13 +40,6 @@ int evaluateInfix(const string& expr) {
             }
             values.push(value);
             i--;
-        } else if (expr[i] == '(') {
-            ops.push('(');
-        } else if (expr[i] == ')') {
-            while (ops.top() != '(') {
-                applyOperation(values, ops);
-            }
-            ops.pop();
         } else if (strchr("+-*/", expr[i])) {
             while (!ops.empty() && precedence(ops.top()) >= precedence(expr[i])) {
                 applyOperation(values, ops);
