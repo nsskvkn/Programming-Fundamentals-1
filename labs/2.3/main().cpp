@@ -1,17 +1,17 @@
+
 #include <iostream>
 using namespace std;
 
 int main() {
-    setlocale(LC_ALL, "RU");
+    setlocale(LC_ALL, "Rus");
     double num1, num2;
     char operation;
 
-
-    cout << "Введіть перше число: ";
+    cout << "Введите первое число: ";
     cin >> num1;
-    cout << "Введіть оператор (+, -, *, /): ";
+    cout << "Введите оператор (+, -, *, /): ";
     cin >> operation;
-    cout << "Введіть друге число: ";
+    cout << "Введите второе число: ";
     cin >> num2;
 
     switch (operation) {
@@ -27,10 +27,12 @@ int main() {
     case '/':
         if (num2 != 0) {
             cout << "Результат: " << num1 / num2 << endl;
+        } else {
+            cout << "Ошибка: деление на ноль!" << endl;
         }
         break;
     default:
-        cout << "Помилка: недійсний оператор!" << endl;
+        cout << "Ошибка: недопустимый оператор!" << endl;
         break;
     }
 
