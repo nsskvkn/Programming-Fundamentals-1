@@ -8,93 +8,52 @@ Done by:
 using namespace std;
 
 struct Node {
-    int data;
+
+    char data;
     Node* next;
 };
 
-inline void addFront(Node** h, int v) {
-    *h = new Node{v, *h};
+void addToBeginning(Node*& head, char value) {
+    Node* newNode = new Node;
+    newNode->data = value;
+    newNode->next = head;
+    head = newNode;
 }
 
-inline void removeFront(Node** h) {
-    if (*h) {
-        Node* t = *h;
-        *h = (*h)->next;
-        delete t;
+Node* createFirstList(int count) {
+    Node* head = nullptr;
+    for (int i = 0; i < count; i++) {
+        char val;
+        cout << "Enter the symbol for the item " << i++ << ": ";
+        cin >> val;
+        addToBeginning(head, val);
     }
+    return head;
 }
 
-inline void print(Node* h) {
-    while (h) {
-        cout << h->data << " ";
-        h = h->next;
+void printList(Node* head) {
+    Node* temp = head;
+    while (temp != nullptr) {
+        cout << temp->data << " ";
+        temp = temp->next;
     }
     cout << endl;
 }
 
-inline void addEnd(Node** h, int v) {
-    Node* n = new Node{v, nullptr};
-    if (!*h) *h = n;
-    else {
-        Node* c = *h;
-        while (c->next) c = c->next;
-        c->next = n;
-    }
-}
-
-inline void removeEnd(Node** h) {
-    if (!*h) return;
-    if (!(*h)->next) delete *h, *h = nullptr;
-    else {
-        Node* c = *h;
-        while (c->next->next) c = c->next;
-        delete c->next;
-        c->next = nullptr;
-    }
-}
-
-inline Node* search(Node* h, int v) {
-    while (h && h->data != v) h = h->next;
-    return h;
-}
-
-inline void reverse(Node** h) {
-    Node* p = nullptr, *c = *h, *n;
-    while (c) n = c->next, c->next = p, p = c, c = n;
-    *h = p;
-}
-
-inline void sort(Node* h) {
-    if (!h) return;
-    bool s;
-    Node* l = nullptr;
-    do {
-        s = false;
-        for (Node* p = h; p->next != l; p = p->next) {
-            if (p->data > p->next->data) swap(p->data, p->next->data), s = true;
-        }
-        l = h;
-    } while (s);
-}
-
-inline void clear(Node** h) {
-    while (*h) removeFront(h);
-}
-
 int main() {
-    Node* h = nullptr;
-    addFront(&h, 10); addFront(&h, 20); addFront(&h, 30); addEnd(&h, 5);
-    print(h);
+    int n = 10;
+    cout << "Here we will create a list where it will be " << n << " elements.\n";
+    Node* myList = createFirstList(n);
 
-    removeFront(&h); print(h);
-    removeEnd(&h); print(h);
+    cout << "\nHere's what we got: ";
+    printList(myList);
 
-    cout << (search(h, 10) ? "Found\n" : "Not Found\n");
+    Node* delPtr;
+    while (myList != nullptr) {
+        delPtr = myList;
+        myList = myList->next;
+        delete delPtr;
+    }
 
-    reverse(&h); print(h);
-
-    sort(h); print(h);
-
-    clear(&h);
     return 0;
 }
