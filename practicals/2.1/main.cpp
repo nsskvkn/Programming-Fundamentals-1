@@ -8,7 +8,6 @@ int main() {
     int A[3][4] = { {3, 5, 2, 8}, {7, 1, 4, 10}, {9, 0, 6, 11} };
     int minValue = A[0][0], minRow = 0, minCol = 0;
 
-    // Пошук мінімального значення в масиві
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 4; j++) {
             if (A[i][j] < minValue) {
@@ -32,9 +31,8 @@ int main() {
         setlocale(LC_ALL, "RU");
 
     int A[3][4] = { {3, -5, 2, -8}, {7, -1, 4, 10}, {9, 0, -6, 11} };
-    int maxNegative = -1000;  // Мінімальне можливе значення (для пошуку від'ємного)
+    int maxNegative = -1000;  
 
-    // Пошук максимального від'ємного значення
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 4; j++) {
             if (A[i][j] < 0 && A[i][j] > maxNegative) {
@@ -56,9 +54,8 @@ int main() {
         setlocale(LC_ALL, "RU");
 
     int A[3][4] = { {3, 5, 2, -8}, {7, -1, 4, 10}, {9, 0, -6, 11} };
-    int minPositive = 1000;  // Максимальне можливе значення (для пошуку додатного)
-
-    // Пошук мінімального додатного значення
+    int minPositive = 1000;  
+    
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 4; j++) {
             if (A[i][j] > 0 && A[i][j] < minPositive) {

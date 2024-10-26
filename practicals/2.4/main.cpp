@@ -16,7 +16,7 @@ int productOfNegatives(const vector<vector<int>>& A) {
     }
 
     if (!hasNegative) {
-        return 0; // Якщо від'ємних чисел немає, повертаємо 0
+        return 0; 
     }
 
     return product;
