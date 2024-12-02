@@ -13,48 +13,50 @@ Done by:
 using namespace std;
 
 bool checkStr(const string& txt) {
-    if (txt.empty() || txt[0] != '%') {
+    if (txt.empty()) {
+        return false; 
+    }
+
+    if (txt[0] != '%') {
         return false;
     }
 
-    int idx = 1;
+    int b = 1; 
 
-    while (idx < txt.length() && isdigit(txt[idx])) {
-        idx++;
+    while (b < txt.size() && isdigit(txt[b])) {
+        b++;
     }
 
-    if (idx + 1 < txt.length() && txt[idx] == '~' && txt[idx + 1] == '~') {
-        idx += 2;
-    } else if (idx + 1 < txt.length() && txt[idx] == '~' && txt[idx + 1] == '%') {
-        idx += 2;
+    if (b + 1 < txt.size() && txt[b] == '~') {
+        if (txt[b + 1] == '~' || txt[b + 1] == '%') {
+            b += 2;
+        } else {
+            return false;
+        }
     } else {
         return false;
     }
 
-    while (idx < txt.length() && isupper(txt[idx])) {
-        idx++;
+    while (b < txt.size() && isupper(txt[b])) {
+        b++;
     }
 
-    if (idx == txt.length() - 1 && txt[idx] == '%') {
-        return true;
-    }
-
-    return false;
+    return b == txt.size() - 1 && txt[b] == '%';
 }
 
 int main() {
     string ex[] = {
-        "%13~~AC%",
-        "%123~%A%",
-        "%13~~ABC%",
-        "%S~~ABC%"
+        "%13~~AC%",  
+        "%123~%A%",  
+        "%13~~ABC%",  
+        "%S~~ABC%"    
     };
 
     for (const auto& e : ex) {
         if (checkStr(e)) {
-            cout << e << " belongs to L(V)" << endl;
+            cout << e << " Це належить L(V)" << endl;
         } else {
-            cout << e << " does NOT belong to L(V)" << endl;
+            cout << e << " Це не належить L(V)" << endl;
         }
     }
 
