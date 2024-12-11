@@ -12,24 +12,28 @@ Done by:
 
 using namespace std;
 
-bool checkStr(const string& txt) {
-    if (txt.empty()) {
+bool e(const string& b) {
+    return b.empty();
+}
+
+bool a(const string& b) {
+    if (e(b)) {
         return false; 
     }
 
-    if (txt[0] != '%') {
+    if (b[0] != '%') {
         return false;
     }
 
-    int b = 1; 
+    int c = 1; 
 
-    while (b < txt.size() && isdigit(txt[b])) {
-        b++;
+    while (c < b.size() && isdigit(b[c])) {
+        c++;
     }
 
-    if (b + 1 < txt.size() && txt[b] == '~') {
-        if (txt[b + 1] == '~' || txt[b + 1] == '%') {
-            b += 2;
+    if (c + 1 < b.size() && b[c] == '~') {
+        if (b[c + 1] == '~' || b[c + 1] == '%') {
+            c += 2;
         } else {
             return false;
         }
@@ -37,23 +41,23 @@ bool checkStr(const string& txt) {
         return false;
     }
 
-    while (b < txt.size() && isupper(txt[b])) {
-        b++;
+    while (c < b.size() && isupper(b[c])) {
+        c++;
     }
 
-    return b == txt.size() - 1 && txt[b] == '%';
+    return c == b.size() - 1 && b[c] == '%';
 }
 
 int main() {
-    string ex[] = {
+    string d[] = {
         "%13~~AC%",  
         "%123~%A%",  
         "%13~~ABC%",  
         "%S~~ABC%"    
     };
 
-    for (const auto& e : ex) {
-        if (checkStr(e)) {
+    for (const auto& e : d) {
+        if (a(e)) {
             cout << e << " Це належить L(V)" << endl;
         } else {
             cout << e << " Це не належить L(V)" << endl;
