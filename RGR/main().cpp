@@ -49,12 +49,7 @@ bool a(const string& b) {
 }
 
 int main() {
-    string d[] = {
-        "%13~~AC%",  
-        "%123~%A%",  
-        "%13~~ABC%",  
-        "%S~~ABC%"    
-    };
+    string d[] = { "%13~~AC%", "%123~%A%", "%13~~ABC%", "%S~~ABC%"};
 
     for (const auto& e : d) {
         if (a(e)) {
