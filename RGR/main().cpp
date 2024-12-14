@@ -12,11 +12,11 @@ Done by:
 
 using namespace std;
 
-bool e(const string& b) {
+bool e(string b) { 
     return b.empty();
 }
 
-bool a(const string& b) {
+bool a(string b) { 
     if (e(b)) {
         return false; 
     }
