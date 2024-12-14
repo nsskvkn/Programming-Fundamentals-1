@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Task: Implement a Calculator using Stack in C++
+=======
+# Task: Implement a Calculator using Stack in C++ (3 labs - 2.3, 2.4, 2.5)
+>>>>>>> 6f97e8203e981497bff2fe7518c8dfcbb46b9d14
 
 ## Objective:
 You are tasked with creating a simple calculator that evaluates mathematical expressions in **infix notation** using a stack. The calculator should support basic arithmetic operations: addition, subtraction, multiplication, and division. The program should correctly handle operator precedence.

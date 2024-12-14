@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
 Done by:
     Student: Yaroslav Yavon
@@ -5,12 +6,15 @@ Done by:
      Lab 2.1
 */
 
+=======
+>>>>>>> 6f97e8203e981497bff2fe7518c8dfcbb46b9d14
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
 
 using namespace std;
 
+<<<<<<< HEAD
 // Завдання №1
 int main() {
     setlocale(LC_ALL, "RU");
@@ -96,11 +100,73 @@ int main() {
     else {
         cout << "У масиві недостатньо елементів для пошуку двох мінімальних значень." << endl;
     }
+=======
+// Function for bubble sort with the ability to choose the sorting direction
+void bubbleSort(int arr[], int n, bool ascending = true) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            // If ascending mode, sort in ascending order
+            if (ascending) {
+                if (arr[j] > arr[j + 1]) {
+                    // Change places if elements are not in the correct order
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+            // If descending mode, sort in descending order
+            else {
+                if (arr[j] < arr[j + 1]) {
+                    // Change places if elements are not in the correct order
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+}
+
+// Function to print the array
+void printArray(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    srand(static_cast<unsigned>(time(0)));
+
+    int n = 10;
+    int arr[10]; //0, 1, 2, 3
+    int arr2[4] = {3, 5, 8, 9};
+
+    for (int i = 0; i < n; i++) {
+        cout << " " << arr[i];
+        arr[i] = rand() % 100;
+    }
+    cout << ' ' << endl;
+
+    cout << "Initial array: ";
+    printArray(arr, n);
+
+    // Sorting in ascending order
+    cout << "Sorting in ascending order: ";
+    bubbleSort(arr, n); // true - ascending
+    printArray(arr, n);
+
+    // Sorting in descending order
+    cout << "Sorting in descending order: ";
+    bubbleSort(arr, n, false); // false - descending
+    printArray(arr, n);
+>>>>>>> 6f97e8203e981497bff2fe7518c8dfcbb46b9d14
 
     return 0;
 }
 
 
+<<<<<<< HEAD
 // Завдання №3
 
 int main() {
@@ -149,3 +215,5 @@ int main() {
     return 0;
 }
 
+=======
+>>>>>>> 6f97e8203e981497bff2fe7518c8dfcbb46b9d14
