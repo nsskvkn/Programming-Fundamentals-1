@@ -17,7 +17,7 @@ bool e(string b) {
 }
 
 bool a(string b) { 
-    if (e(b)) {
+    if ( b.empty()) {
         return false; 
     }
 
@@ -51,7 +51,7 @@ bool a(string b) {
 int main() {
     string d[] = { "%13~~AC%", "%123~%A%", "%13~~ABC%", "%S~~ABC%"};
 
-    for (const auto& e : d) {
+    for (auto e : d) {
         if (a(e)) {
             cout << e << " Це належить L(V)" << endl;
         } else {
